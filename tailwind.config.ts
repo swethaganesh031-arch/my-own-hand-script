@@ -47,16 +47,19 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        sidebar: {
-          DEFAULT: "hsl(var(--sidebar-background))",
-          foreground: "hsl(var(--sidebar-foreground))",
-          primary: "hsl(var(--sidebar-primary))",
-          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
-          accent: "hsl(var(--sidebar-accent))",
-          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
-          border: "hsl(var(--sidebar-border))",
-          ring: "hsl(var(--sidebar-ring))",
+        paper: {
+          DEFAULT: "hsl(var(--paper))",
+          ruled: "hsl(var(--paper-ruled))",
         },
+        ink: {
+          blue: "hsl(var(--ink-blue))",
+          black: "hsl(var(--ink-black))",
+        },
+      },
+      fontFamily: {
+        handwriting: ['Caveat', 'cursive'],
+        handwriting2: ['Dancing Script', 'cursive'],
+        handwriting3: ['Kalam', 'cursive'],
       },
       borderRadius: {
         lg: "var(--radius)",
