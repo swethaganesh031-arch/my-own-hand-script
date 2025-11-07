@@ -6,6 +6,8 @@ import { PenTool } from "lucide-react";
 
 const Index = () => {
   const [text, setText] = useState("");
+  const [subject, setSubject] = useState("");
+  const [topic, setTopic] = useState("");
   const [fontStyle, setFontStyle] = useState("font-handwriting");
   const [inkColor, setInkColor] = useState("blue");
   const [paperStyle, setPaperStyle] = useState("ruled");
@@ -31,7 +33,14 @@ const Index = () => {
       <main className="container mx-auto px-4 py-8">
         <div className="grid lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2 space-y-8">
-            <TextEditor value={text} onChange={setText} />
+            <TextEditor 
+              value={text} 
+              onChange={setText}
+              subject={subject}
+              onSubjectChange={setSubject}
+              topic={topic}
+              onTopicChange={setTopic}
+            />
             <HandwritingPreview
               text={text}
               fontStyle={fontStyle}
@@ -39,6 +48,8 @@ const Index = () => {
               paperStyle={paperStyle}
               fontSize={fontSize}
               lineSpacing={lineSpacing}
+              subject={subject}
+              topic={topic}
             />
           </div>
 

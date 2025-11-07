@@ -11,6 +11,8 @@ interface HandwritingPreviewProps {
   paperStyle: string;
   fontSize: number;
   lineSpacing: number;
+  subject?: string;
+  topic?: string;
 }
 
 export const HandwritingPreview = ({
@@ -20,6 +22,8 @@ export const HandwritingPreview = ({
   paperStyle,
   fontSize,
   lineSpacing,
+  subject,
+  topic,
 }: HandwritingPreviewProps) => {
   const previewRef = useRef<HTMLDivElement>(null);
 
@@ -88,6 +92,20 @@ export const HandwritingPreview = ({
         ref={previewRef}
         className={`min-h-[400px] p-8 rounded-lg shadow-lg border border-border overflow-auto ${getPaperClass()}`}
       >
+        {(subject || topic) && (
+          <div className={`mb-6 pb-4 border-b ${getInkColorClass()} border-current/20`}>
+            {subject && (
+              <div className={`${fontStyle} ${getInkColorClass()} text-lg mb-1`}>
+                <span className="font-semibold">Subject: </span>{subject}
+              </div>
+            )}
+            {topic && (
+              <div className={`${fontStyle} ${getInkColorClass()} text-lg`}>
+                <span className="font-semibold">Topic: </span>{topic}
+              </div>
+            )}
+          </div>
+        )}
         <div
           className={`${fontStyle} ${getInkColorClass()} whitespace-pre-wrap`}
           style={{
