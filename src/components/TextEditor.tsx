@@ -9,9 +9,13 @@ interface TextEditorProps {
   onSubjectChange: (value: string) => void;
   topic: string;
   onTopicChange: (value: string) => void;
+  format: string;
+  onFormatChange: (value: string) => void;
+  handwritingStyle: string;
+  onHandwritingStyleChange: (value: string) => void;
 }
 
-export const TextEditor = ({ value, onChange, subject, onSubjectChange, topic, onTopicChange }: TextEditorProps) => {
+export const TextEditor = ({ value, onChange, subject, onSubjectChange, topic, onTopicChange, format, onFormatChange, handwritingStyle, onHandwritingStyleChange }: TextEditorProps) => {
   return (
     <div className="space-y-4">
       <div className="grid grid-cols-2 gap-4">
@@ -36,6 +40,33 @@ export const TextEditor = ({ value, onChange, subject, onSubjectChange, topic, o
             value={topic}
             onChange={(e) => onTopicChange(e.target.value)}
             placeholder="e.g., Calculus"
+            className="bg-card border-border"
+          />
+        </div>
+      </div>
+      
+      <div className="grid grid-cols-2 gap-4">
+        <div className="space-y-2">
+          <Label htmlFor="format" className="text-sm font-medium text-foreground">
+            Format
+          </Label>
+          <Input
+            id="format"
+            value={format}
+            onChange={(e) => onFormatChange(e.target.value)}
+            placeholder="e.g., Handwritten Style"
+            className="bg-card border-border"
+          />
+        </div>
+        <div className="space-y-2">
+          <Label htmlFor="handwriting-style" className="text-sm font-medium text-foreground">
+            Handwriting Pattern
+          </Label>
+          <Input
+            id="handwriting-style"
+            value={handwritingStyle}
+            onChange={(e) => onHandwritingStyleChange(e.target.value)}
+            placeholder="e.g., Your Handwriting Pattern"
             className="bg-card border-border"
           />
         </div>

@@ -8,6 +8,8 @@ const Index = () => {
   const [text, setText] = useState("");
   const [subject, setSubject] = useState("");
   const [topic, setTopic] = useState("");
+  const [format, setFormat] = useState("");
+  const [handwritingStyle, setHandwritingStyle] = useState("");
   const [fontStyle, setFontStyle] = useState("font-handwriting");
   const [inkColor, setInkColor] = useState("blue");
   const [paperStyle, setPaperStyle] = useState("ruled");
@@ -40,6 +42,10 @@ const Index = () => {
               onSubjectChange={setSubject}
               topic={topic}
               onTopicChange={setTopic}
+              format={format}
+              onFormatChange={setFormat}
+              handwritingStyle={handwritingStyle}
+              onHandwritingStyleChange={setHandwritingStyle}
             />
             <HandwritingPreview
               text={text}
@@ -50,6 +56,8 @@ const Index = () => {
               lineSpacing={lineSpacing}
               subject={subject}
               topic={topic}
+              format={format}
+              handwritingStyle={handwritingStyle}
             />
           </div>
 

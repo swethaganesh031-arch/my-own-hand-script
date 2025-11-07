@@ -13,6 +13,8 @@ interface HandwritingPreviewProps {
   lineSpacing: number;
   subject?: string;
   topic?: string;
+  format?: string;
+  handwritingStyle?: string;
 }
 
 export const HandwritingPreview = ({
@@ -24,6 +26,8 @@ export const HandwritingPreview = ({
   lineSpacing,
   subject,
   topic,
+  format,
+  handwritingStyle,
 }: HandwritingPreviewProps) => {
   const previewRef = useRef<HTMLDivElement>(null);
 
@@ -92,7 +96,7 @@ export const HandwritingPreview = ({
         ref={previewRef}
         className={`min-h-[400px] p-8 rounded-lg shadow-lg border border-border overflow-auto ${getPaperClass()}`}
       >
-        {(subject || topic) && (
+        {(subject || topic || format || handwritingStyle) && (
           <div className={`mb-6 pb-4 border-b ${getInkColorClass()} border-current/20`}>
             {subject && (
               <div className={`${fontStyle} ${getInkColorClass()} text-lg mb-1`}>
@@ -100,8 +104,18 @@ export const HandwritingPreview = ({
               </div>
             )}
             {topic && (
-              <div className={`${fontStyle} ${getInkColorClass()} text-lg`}>
+              <div className={`${fontStyle} ${getInkColorClass()} text-lg mb-1`}>
                 <span className="font-semibold">Topic: </span>{topic}
+              </div>
+            )}
+            {format && (
+              <div className={`${fontStyle} ${getInkColorClass()} text-lg mb-1`}>
+                <span className="font-semibold">Format: </span>{format}
+              </div>
+            )}
+            {handwritingStyle && (
+              <div className={`${fontStyle} ${getInkColorClass()} text-lg`}>
+                <span className="font-semibold">Handwriting Pattern: </span>{handwritingStyle}
               </div>
             )}
           </div>
